@@ -1,0 +1,436 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+       <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/checkout/">
+       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+       <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+       <style>
+              .bd-placeholder-img {
+                     font-size: 1.125rem;
+                     text-anchor: middle;
+                     -webkit-user-select: none;
+                     -moz-user-select: none;
+                     user-select: none;
+              }
+
+              @media (min-width: 768px) {
+                     .bd-placeholder-img-lg {
+                            font-size: 3.5rem;
+                     }
+              }
+
+              .b-example-divider {
+                     height: 3rem;
+                     background-color: rgba(0, 0, 0, .1);
+                     border: solid rgba(0, 0, 0, .15);
+                     border-width: 1px 0;
+                     box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+              }
+
+              .b-example-vr {
+                     flex-shrink: 0;
+                     width: 1.5rem;
+                     height: 100vh;
+              }
+
+              .bi {
+                     vertical-align: -.125em;
+                     fill: currentColor;
+              }
+
+              .nav-scroller {
+                     position: relative;
+                     z-index: 2;
+                     height: 2.75rem;
+                     overflow-y: hidden;
+              }
+
+              .nav-scroller .nav {
+                     display: flex;
+                     flex-wrap: nowrap;
+                     padding-bottom: 1rem;
+                     margin-top: -1px;
+                     overflow-x: auto;
+                     text-align: center;
+                     white-space: nowrap;
+                     -webkit-overflow-scrolling: touch;
+              }
+       </style>
+</head>
+
+<body>
+
+<header th:insert="blocks/header :: header"></header>
+<main><br ><br >
+       <div class="album  bg-light">
+                     <nav id="navbar-example2" class="navbar bg-danger px-3 border-1">
+
+
+                                          <div class="btn-group">
+                                                 <button   class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                        Фильтр
+                                                 </button>
+                                                 <button   class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+                                                        Добавить
+                                                 </button>
+                                                 <button   class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                                                        Excel
+                                                 </button>
+
+<!--                                                 <a href="/users" class="btn btn-outline-light">Добавить</a >-->
+<!--                                                 <a href="/upload/show/file" class="btn btn-outline-light">Excel</a>-->
+                                          </div>
+
+                            <!-- Modal -example-->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                   <div class="modal-dialog">
+                                          <div class="modal-content">
+                                                 <div class="modal-header">
+                                                        <div class="col-md-8"> <h5  style="color: red;">Фильтр</h5></div>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                 </div>
+                                                 <div class="modal-body">
+
+<!--                                                               <ul class="list-group">-->
+<!--                                                                      <li class="list-group-item"> <label for="filial" class="form-label">Филиал</label>-->
+<!--                                                                             <input type="text"  class="form-control" name="filial" id="filial" placeholder="" value=""></li>-->
+<!--                                                                      <li class="list-group-item"><label for="dep_cur" class="form-label">Филиал</label>-->
+<!--                                                                             <input type="text"  class="form-control" name="dep_cur" id="dep_cur" placeholder="" value=""></li>-->
+<!--                                                                      <li class="list-group-item"><label for="full_name" class="form-label">Ф.И.О</label>-->
+<!--                                                                             <input type="text"  class="form-control" name="full_name" id="full_name" placeholder="" value=""></li>-->
+<!--                                                               </ul>-->
+                                                               <div class="row g-3">
+                                                                      <div class="col-sm-12">
+                                                                             <label class="form-label" for="floatingInput">Ф.И.О</label>
+                                                                             <input type="text" class="form-control" id="floatingInput" placeholder="">
+                                                                      </div>
+                                                               </div>
+                                                               <div class="row">
+                                                                      <div class="col-sm-6">
+                                                                             <label class="form-label" for="filial">Филиал</label>
+                                                                             <select class="form-select" name = "filial" id = "filial" >
+                                                                                    <option>Выбрать..</option>
+                                                                                    <option>Юнусобод</option>
+                                                                             </select >
+                                                                      </div>
+                                                                      <div class="col-sm-6">
+                                                                             <label class="form-label" for="dep">Департамент</label>
+                                                                             <select class="form-select" name = "filial" id="dep">
+                                                                                    <option>Выбрать..</option>
+                                                                                    <option>Юнусобод</option>
+                                                                             </select >
+                                                                      </div>
+                                                               </div>
+                                                        <br >
+                                                               <button type="submit" class="btn btn-danger">Save changes</button>
+
+                                                 </div>
+<!--                                                 <div class="modal-footer">-->
+<!--                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>-->
+<!--                                                        -->
+<!--                                                 </div>-->
+                                          </div>
+                                   </div>
+                            </div>
+<!--                            user-form-modal-->
+                            <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                   <div class="modal-dialog modal-lg" role="document">
+                                          <div class="modal-content">
+                                                 <div class="modal-header">
+                                                        <div class="col-md-8"> <h5  style="color: red;">Анкета</h5></div>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                 </div>
+                                                 <div class="modal-body">
+                                                               <div  class="card-body">
+                                                                      <div class="col-md-12">
+                                                                             <div class="row g-lg-2">
+                                                                                    <div class="col-md-8"> <h4  style="color: red;">Личная информация</h4></div>
+                                                                             </div>
+                                                                             <form th:action="@{/upload}" method="post" enctype="multipart/form-data" novalidate>
+
+                                                                                    <div class="row g-3">
+                                                                                           <div class="col-sm-8">
+                                                                                                  <label for="full_name" class="form-label">Ф.И.О</label>
+                                                                                                  <input type="text"  class="form-control" name="full_name" id="full_name" placeholder="" value="" required>
+                                                                                                  <div class="invalid-feedback">
+                                                                                                         Valid first name is required.
+                                                                                                  </div>
+                                                                                           </div>
+
+                                                                                           <div class="col-sm-4">
+                                                                                                  <label for="dateBirth" class="form-label">Дата рождения</label>
+                                                                                                  <input type="date" class="form-control date-picker" name="date_birth" id="dateBirth" placeholder="" value="" required>
+                                                                                                  <div class="invalid-feedback">
+                                                                                                         Valid last name is required.
+                                                                                                  </div>
+                                                                                           </div>
+                                                                                           <div class="col-md-4">
+                                                                                                  <label for="country" class="form-label">Старана</label>
+                                                                                                  <select class="form-select" name="country" id="country" required>
+                                                                                                         <option value="">Выбрать...</option>
+                                                                                                         <option value="Uzb">Uzbekistan</option>
+                                                                                                         <option value="Rus">Russia</option>
+                                                                                                         <option value="Us">USA</option>
+                                                                                                         <option value="Eng">England</option>
+                                                                                                  </select>
+                                                                                                  <div class="invalid-feedback">
+                                                                                                         Please select a valid country.
+                                                                                                  </div>
+                                                                                           </div>
+
+                                                                                           <div class="col-md-4">
+                                                                                                  <label for="state" class="form-label">Город</label>
+                                                                                                  <select class="form-select"  name="city" id="state" required>
+                                                                                                         <option value="">Выбрать...</option>
+                                                                                                         <option>Tashkent</option>
+                                                                                                  </select>
+                                                                                                  <div class="invalid-feedback">
+                                                                                                         Please provide a valid state.
+                                                                                                  </div>
+                                                                                           </div>
+                                                                                           <div class="col-md-4">
+                                                                                                  <label for="state" class="form-label">Регион</label>
+                                                                                                  <select  class="form-select" name="region" id="region" required>
+                                                                                                         <option value="">Выбрать...</option>
+                                                                                                         <option>Mirzo Ulugbek</option>
+                                                                                                  </select>
+                                                                                                  <div class="invalid-feedback">
+                                                                                                         Please provide a valid region.
+                                                                                                  </div>
+                                                                                           </div>
+                                                                                           <div class="col-12">
+                                                                                                  <label for="address" class="form-label">Адрес</label>
+                                                                                                  <input type="text" class="form-control" name="address" id="address" placeholder="1234 Main St" required>
+                                                                                                  <div class="invalid-feedback">
+                                                                                                         Please enter your valid address.
+                                                                                                  </div>
+                                                                                           </div>
+
+                                                                                           <div class="col-md-4">
+                                                                                                  <label for="phoneNum1" class="form-label">Телефон номер<span class="text-muted">(основной)</span></label>
+                                                                                                  <input type="text" maxlength="12" class="form-control" name="phone_main" id="phoneNum1" placeholder="998XXXXXXXXX" required>
+                                                                                                  <div class="invalid-feedback">
+                                                                                                         Please enter your valid phone.
+                                                                                                  </div>
+                                                                                           </div>
+                                                                                           <div class="col-md-4">
+                                                                                                  <label for="phoneNum2" class="form-label">Телефон номер<span class="text-muted">(домашний)</span></label>
+                                                                                                  <input type="text" maxlength="12" class="form-control" name="phone_home" id="phoneNum2" placeholder="998XXXXXXXXX" required>
+                                                                                                  <div class="invalid-feedback">
+                                                                                                         Please enter your valid phone.
+                                                                                                  </div>
+                                                                                           </div>
+                                                                                           <div class="col-md-4">
+                                                                                                  <label for="phoneNum3" class="form-label">Телефон номер<span class="text-muted">(IP)</span></label>
+                                                                                                  <input type="text"  maxlength="12" class="form-control"  name="phone_ext" id="phoneNum3" placeholder="998XXXXXXXXX" required>
+                                                                                                  <div class="invalid-feedback">
+                                                                                                         Please enter your valid phone.
+                                                                                                  </div>
+                                                                                           </div>
+                                                                                           <!--                                          <div class="col-12">-->
+                                                                                           <!--                                                 <label for="email" class="form-label">Почта <span class="text-muted">(Optional)</span></label>-->
+                                                                                           <!--                                                 <input type="text" class="form-control" id="email" name="email" placeholder="you@example.com">-->
+                                                                                           <!--                                                 <div class="invalid-feedback">-->
+                                                                                           <!--                                                        Please enter a valid email address for shipping updates.-->
+                                                                                           <!--                                                 </div>-->
+                                                                                           <!--                                          </div>-->
+
+                                                                                    </div>
+                                                                                    <hr class="my-4">
+                                                                                    <div class="col-md-8"> <h4  style="color: red;">Опыт работы</h4></div>
+                                                                                    <br >
+                                                                                    <div class="row g-lg-3" >
+                                                                                           <div class="input-group col-8" >
+                                                                                                  <span class="input-group-text">Место работы</span>
+                                                                                                  <textarea class="form-control"   name="place_exp" aria-label="With textarea"></textarea>
+                                                                                           </div>
+                                                                                    </div>
+                                                                                    <hr class="my-4">
+                                                                                    <div class="col-md-8"> <h4  style="color: red;">Должностная информация</h4></div>
+                                                                                    <div class="row g-lg-3">
+                                                                                           <div class="col-md-4">
+                                                                                                  <label for="dep_cur" class="form-label">Департамент</label>
+                                                                                                  <select class="form-select" name="dep_cur" id="dep_cur" required>
+                                                                                                         <option value="">Выбрать...</option>
+                                                                                                         <option>ИТ</option>
+                                                                                                  </select>
+                                                                                                  <div class="invalid-feedback">
+                                                                                                         Please provide a valid state.
+                                                                                                  </div>
+                                                                                           </div>
+                                                                                           <div class="col-md-4">
+                                                                                                  <label for="spec_cur" class="form-label">Специализация</label>
+                                                                                                  <select class="form-select" name="spec_cur" id="spec_cur" required>
+                                                                                                         <option value="">Выбрать...</option>
+                                                                                                         <option>Программист</option>
+                                                                                                  </select>
+                                                                                                  <div class="invalid-feedback">
+                                                                                                         Please provide a valid state.
+                                                                                                  </div>
+                                                                                           </div>
+                                                                                           <div class="col-md-4">
+                                                                                                  <label for="position_cur" class="form-label">Должность</label>
+                                                                                                  <select class="form-select" name="position_cur" id="position_cur" required>
+                                                                                                         <option value="">Выбрать...</option>
+                                                                                                         <option>Ведущий специалист</option>
+                                                                                                  </select>
+                                                                                                  <div class="invalid-feedback">
+                                                                                                         Please provide a valid state.
+                                                                                                  </div>
+                                                                                           </div>
+
+                                                                                    </div> <br >
+                                                                                    <label for="formFile" class="form-label">Фото</label>
+                                                                                    <input class="form-control" name="file" type="file" id="formFile"><br />
+                                                                                    <button  type="submit"  value="Upload" class="w-100 btn btn-danger btn-lg">Сохранить</button>
+
+                                                                                    <h6 class="text-success">[[${success}]]</h6>
+                                                                             </form>
+                                                                             <!--                     <a href="/upload/show" style="float:left;" class="btn btn-success text-right">Show All</a>-->
+                                                                      </div>
+                                                               </div>
+                                                 </div>
+<!--                                                 <div class="modal-footer">-->
+<!--&lt;!&ndash;                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>&ndash;&gt;-->
+<!--                                                 </div>-->
+                                          </div>
+                                   </div>
+                            </div>
+                            <div class="modal fade" id="exampleModal2" tabindex="-1" aria-hidden="true">
+                                   <div class="modal-dialog">
+                                          <div class="modal-content">
+                                                 <div class="modal-header">
+                                                        <div class="col-md-10"> <h5  style="color: red;">Загрузка Excel файла</h5></div>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                 </div>
+                                                 <div class="modal-body">
+                                                        <div class="container h-100">
+                                                               <div class="h-100">
+                                                                      <div class="row h-100 justify-content-center align-items-center">
+                                                                             <div class="col-sm-8">
+                                                                                    <form th:action="@{/upload/show/file}" method="POST" enctype="multipart/form-data" id="fileUploadForm">
+                                                                                           <div class="form-group">
+                                                                                                  <input type="file" class="form-control" id="uploadfile" placeholder="Upload File"  name="uploadfile"></input>
+                                                                                           </div>
+                                                                                           <br >
+                                                                                           <button type="submit" class="btn btn-danger" id="btnSubmit">Upload</button>
+<!--                                                                                           <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>-->
+                                                                                    </form>
+                                                                                    <div th:if="${message}">
+                                                                                           <span th:text="${message}"/>
+                                                                                           <a href="/file">Download Excel File from MySQL</a>
+                                                                                    </div>
+                                                                             </div>
+                                                                      </div>
+                                                               </div>
+                                                        </div>
+
+                                                 </div>
+                                          </div>
+                                   </div>
+                            </div>
+
+                          </nav>
+<!--                     <div class="navbar-nav  navbar-nav-scroll">-->
+                            <div class="row flex-lg-nowrap">
+                                   <div class="col mb-3">
+                                          <div class="e-panel card">
+                                                 <div class="card-body">
+<!--                                                        <div class="card-title">-->
+<!--                                                               <h6 class="mr-2"><span>Users</span><small class="px-1">Be a wise leader</small></h6>-->
+<!--                                                        </div>-->
+                                                        <div class="e-table">
+                                                               <div class="table-responsive table-lg mt-3">
+                            <table class="table  p-5 table-hover   table-border">
+                                   <thead>
+                                   <div>
+                                          <tr class="border-bottom">
+                                                 <th style="text-align: center" >
+                                                        <div class="custom-control custom-control-inline custom-checkbox custom-control-nameless m-0">
+                                                               <input type="checkbox" class="custom-control-input" id="all-items">
+                                                               <label class="custom-control-label" for="all-items"></label>
+                                                        </div>
+                                                 </th>
+                                                 <th style="text-align: center" >
+                                                        <span class="ml-1">Фото</span>
+                                                 </th>
+                                                 <th class="max-width" style="text-align: center" >
+                                                        <span class="ml-2" >Имя</span>
+                                                 </th>
+                                                 <th class="sortable" style="text-align: center">
+                                                        <span class="ml-2">Департамент</span>
+                                                 </th >
+                                                 <th class="sortable" style="text-align: center">
+                                                        <span class="ml-2">Телефон</span>
+                                                 </th>
+                                                 <th class="sortable" style="text-align: center">
+                                                        <span class="ml-2">Позиция</span>
+                                                 </th>
+                                                 <th style="text-align: center">
+                                                 <span>Действие</span></th>
+                                          </tr>
+                                   </div>
+                                   </thead>
+                                   <tbody  th:each="userList: ${list}">
+                                   <tr class="border-bottom">
+                                          <td class="align-middle" >
+                                                 <div class="custom-control custom-control-inline custom-checkbox custom-control-nameless m-0 align-top">
+                                                        <input type="checkbox" class="custom-control-input" id="item-1" th:ononline="${userList.id}"
+                                                        style="display: block; margin-right: auto;margin-left: auto;">
+                                                        <label class="custom-control-label" for="item-1"></label>
+                                                 </div>
+                                          <td >
+                                                        <img  th:src="@{'/upload/show/image?id='+ ${userList.id}}"
+                                                              style="width: 100px; height: 100px; display: block;margin-left: auto; margin-right: auto;" class="fa fa-fw  rounded img-fluid">
+                                          </td>
+                                          <td class= "text-nowrap align-middle"  style="text-align: center">
+                                                 <div class="p-1 align-content-between" >
+                                                        <p class="font-weight-bold" th:text="${userList.full_name}"/>
+                                                 </div>
+                                          </td>
+                                          <td class= "text-nowrap align-middle"  style="text-align: center">
+                                                        <div class="d-flex flex-column ml-2"  style="text-align: center">
+                                                               <p class="font-weight-bold" th:text="${userList.dep_cur}"/>
+                                                        </div>
+
+                                          </td>
+                                          <td class= "text-nowrap align-middle"  style="text-align: center">
+                                                 <div class="p-2">
+                                                        <p class="font-weight-bold" th:text="${userList.phone_main}"/>
+                                                 </div>
+                                          </td>
+                                          <td class= "text-nowrap align-middle"  style="text-align: center">
+                                                 <div class="p-2 d-flex flex-column">
+                                                        <p  class="font-weight-bold" th:text="${userList.spec_cur}" />
+                                                 </div>
+                                          </td>
+                                          <td class= "text-nowrap align-middle">
+                                                 <div  class="p-2"  style="text-align: center">
+<!--                                                        <a th:href="/" class="text-danger" >Детальнее</a ><span> |</span>-->
+                                                        <a th:href="@{/upload/show/edit/{id}(id=${userList.id})}" class="text-danger" >Изменить</a ><span> |</span>
+                                                        <a th:href="@{/upload/show/delete/{id}(id=${userList.id})}" class="text-danger" >Удалить</a >
+                                                 </div>
+
+                                          </td>
+                                   </tr>
+
+
+
+                                   </tbody>
+                            </table>
+                     </div>
+                                                        </div></div></div></div></div></div>
+
+</main>
+<footer><div th:insert="blocks/footer :: footer"></div></footer>
+
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" >
+<head>
+       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+       <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/checkout/">
+       <link href="/docs/5.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+       <link href="navbar.css" rel="stylesheet">
+       <link rel = "stylesheet" href = "../static/css/style.css" >
+
+</head>
+
+<body class="bg-light">
+<header th:insert="blocks/header :: header"></header>
+       <div class="container p-3">
+              <main>
+                     <div class="container rounded-5 bg-white mt-5 mb-5 ">
+                            <form th:action="@{/upload}" method="post" enctype="multipart/form-data"  novalidate th:object="${list}">
+                                   <div class="row">
+                                                 <div class="col-md-3 border-right">
+                                                        <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded mt-5" width="150px" th:src="@{'/upload/show/image?id='+ *{id}}"><span class="text-black-50">edogaru@mail.com.my</span><span> </span>
+                                                               <input class="form-control" name="file" type="file" id="formFile"><br /></div></div>
+                                                 <div class="col-md-8 border-right">
+                                                        <div class="p-3 py-5">
+                                                               <div class="col-md-8"> <h4  style="color: red;">Личная информация</h4></div>
+                                                                             <div class="row mt-2">
+                                                                                    <input type="hidden" th:field="*{id}" />
+                                                                                    <div class="col-md-8"> <label for="full_name" class="form-label">Ф.И.О</label>
+                                                                                           <input type="text"  class="form-control" th:field="*{full_name}" name="full_name" id="full_name" placeholder="" value=""></div>
+                                                                                    <div class="col-md-4"><label for="dateBirth" class="form-label">Дата рождения</label>
+                                                                                           <input type="date" class="form-control"  th:field="*{date_birth}" name="date_birth" id="dateBirth" placeholder="" value=""></div>
+                                                                             </div>
+                                                                             <div class="row mt-4">
+                                                                                    <div class="col-md-4"> <label for="country" class="form-label">Старана</label>
+                                                                                           <select class="form-select"   name="country" id="country" required>
+                                                                                                  <option value="">Выбрать...</option>
+                                                                                                  <option>Uzbekistan</option>
+                                                                                           </select></div>
+                                                                                    <div class="col-md-4"><label for="city" class="form-label">Город</label>
+                                                                                           <select class="form-select"  name="city" id="city" required>
+                                                                                                  <option value="">Выбрать...</option>
+                                                                                                  <option>Uzbekistan</option>
+                                                                                           </select></div>
+                                                                                    <div class="col-md-4"> <label for="region" class="form-label">Регион</label>
+                                                                                           <select class="form-select"  name="region" id="region" required>
+                                                                                                  <option value="">Выбрать...</option>
+                                                                                                  <option>Uzbekistan</option>
+                                                                                           </select></div>
+                                                                             </div>
+                                                                             <div class="row mt-3">
+                                                                                    <div class="col-md-12"><label for="address" class="form-label">Адрес</label>
+                                                                                           <input type="text" class="form-control" th:field="*{address}" name="address" id="address" placeholder="1234 Main St" required></div>
+                                                                             </div>
+                                                                             <div class="row mt-3">
+                                                                                    <div class="col-md-4"> <label for="phone_main" class="form-label">Телефон номер<span class="text-muted">(основной)</span></label>
+                                                                                           <input type="text" maxlength="12" class="form-control" th:field="*{phone_main}" name="phone_main" id="phone_main" placeholder="998XXXXXXXXX" required></div>
+                                                                                    <div class="col-md-4"> <label for="phone_home" class="form-label">Телефон номер<span class="text-muted">(основной)</span></label>
+                                                                                           <input type="text" maxlength="12" class="form-control" th:field="*{phone_home}" name="phone_home" id="phone_home" placeholder="998XXXXXXXXX" required></div>
+                                                                                    <div class="col-md-4"> <label for="phone_ext" class="form-label">Телефон номер<span class="text-muted">(основной)</span></label>
+                                                                                           <input type="text" maxlength="12" class="form-control" th:field="*{phone_ext}" name="phone_ext" id="phone_ext" placeholder="998XXXXXXXXX" required></div>
+                                                                             </div>
+                                                               <hr class="my-4">
+                                                               <div class="col-md-8"> <h4  style="color: red;">Опыт работы</h4></div>
+                                                                             <br >
+                                                                                    <div class="row g-lg-3" >
+                                                                                                  <div class="input-group col-8" >
+                                                                                                         <span class="input-group-text">Место работы</span>
+                                                                                                         <textarea class="form-control"  th:field="*{place_exp}" name="place_exp" aria-label="With textarea"></textarea>
+                                                                                                  </div>
+                                                                                           <hr class="my-4" >
+                                                                                     </div>
+                                                                             <div class="col-md-8"> <h4  style="color: red;">Должностная информация</h4></div>
+                                                                                    <div class="row mt-4">
+                                                                                                  <div class="col-md-4">
+                                                                                                         <label for="dep_cur" class="form-label">Департамент</label>
+                                                                                                         <select class="form-select"  name="dep_cur" id="dep_cur">
+                                                                                                                <option value="">Выбрать...</option>
+                                                                                                                <option>ИТ</option>
+                                                                                                         </select>
+                                                                                                  </div>
+                                                                                                  <div class="col-md-4">
+                                                                                                         <label for="spec_cur" class="form-label">Специализация</label>
+                                                                                                         <select class="form-select" name="spec_cur" id="spec_cur">
+                                                                                                                <option value="">Выбрать...</option>
+                                                                                                                <option>Программист</option>
+                                                                                                         </select>
+                                                                                                  </div>
+                                                                                                  <div class="col-md-4">
+                                                                                                         <label for="position_cur" class="form-label">Должность</label>
+                                                                                                         <select class="form-select"   name="position_cur" id="position_cur">
+                                                                                                                <option value="">Выбрать...</option>
+                                                                                                                <option>Ведущий специалист</option>
+                                                                                                         </select>
+                                                                                                  </div>
+                                                                                           </div>
+                                                               <br >
+                                                               <button  type="submit"  value="Upload" class="w-100 btn btn-primary btn-lg">Сохранить</button>
+                                                        </div>
+                                                 </div>
+                                   </div>
+                            </form>
+                     </div>
+
+              </main>
+        </div>
+       <footer><div th:insert="blocks/footer :: footer"></div></footer>
+
+</div>
+
+
+<script src="/docs/5.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+
+</body>
+
+</html >

@@ -1,0 +1,197 @@
+<div th:fragment = "header" class = "card-body"
+     xmlns:th = "http://www.w3.org/1999/xhtml" >
+       <div class="col-md-12">
+              <div class="row g-lg-2">
+                     <div class="col-md-8"> <h4  style="color: red;">Личная информация</h4></div>
+              </div>
+              <form th:action="@{/upload}" method="post" enctype="multipart/form-data">
+
+                     <div class="row g-3">
+                            <div class="col-sm-8">
+                                   <label for="full_name" class="form-label">Ф.И.О</label>
+                                   <input type="text"  class="form-control" name="full_name" id="full_name" placeholder="" value="" required>
+                                   <div class="invalid-feedback">
+                                          Valid first name is required.
+                                   </div>
+                            </div>
+
+                            <div class="col-sm-4">
+                                   <label for="dateBirth" class="form-label">Дата рождения</label>
+                                   <input type="date" class="form-control" name="date_birth" id="dateBirth" placeholder="" value="" required>
+                                   <div class="invalid-feedback">
+                                          Valid last name is required.
+                                   </div>
+                            </div>
+                            <div class="col-md-4">
+                                   <label for="country" class="form-label">Старана</label>
+                                   <select class="form-select" name="country" id="country" required>
+                                          <option value="">Выбрать...</option>
+                                          <option>Uzbekistan</option>
+                                   </select>
+                                   <div class="invalid-feedback">
+                                          Please select a valid country.
+                                   </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                   <label for="state" class="form-label">Город</label>
+                                   <select class="form-select"  name="city" id="state" required>
+                                          <option value="">Выбрать...</option>
+                                          <option>Tashkent</option>
+                                   </select>
+                                   <div class="invalid-feedback">
+                                          Please provide a valid state.
+                                   </div>
+                            </div>
+                            <div class="col-md-4">
+                                   <label for="state" class="form-label">Регион</label>
+                                   <select  class="form-select" name="region" id="region" required>
+                                          <option value="">Выбрать...</option>
+                                          <option>Mirzo Ulugbek</option>
+                                   </select>
+                                   <div class="invalid-feedback">
+                                          Please provide a valid state.
+                                   </div>
+                            </div>
+                            <div class="col-12">
+                                   <label for="address" class="form-label">Адрес</label>
+                                   <input type="text" class="form-control" name="address" id="address" placeholder="1234 Main St" required>
+                                   <div class="invalid-feedback">
+                                          Please enter your shipping address.
+                                   </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                   <label for="phoneNum1" class="form-label">Телефон номер<span class="text-muted">(основной)</span></label>
+                                   <input type="text" maxlength="12" class="form-control" name="phone_main" id="phoneNum1" placeholder="998XXXXXXXXX" required>
+                                   <div class="invalid-feedback">
+                                          Please enter your shipping address.
+                                   </div>
+                            </div>
+                            <div class="col-md-4">
+                                   <label for="phoneNum2" class="form-label">Телефон номер<span class="text-muted">(домашний)</span></label>
+                                   <input type="text" maxlength="12" class="form-control" name="phone_home" id="phoneNum2" placeholder="998XXXXXXXXX" required>
+                                   <div class="invalid-feedback">
+                                          Please enter your shipping address.
+                                   </div>
+                            </div>
+                            <div class="col-md-4">
+                                   <label for="phoneNum3" class="form-label">Телефон номер<span class="text-muted">(дополнительный)</span></label>
+                                   <input type="text"  maxlength="12" class="form-control"  name="phone_ext" id="phoneNum3" placeholder="998XXXXXXXXX">
+                            </div>
+                            <!--                                          <div class="col-12">-->
+                            <!--                                                 <label for="email" class="form-label">Почта <span class="text-muted">(Optional)</span></label>-->
+                            <!--                                                 <input type="text" class="form-control" id="email" name="email" placeholder="you@example.com">-->
+                            <!--                                                 <div class="invalid-feedback">-->
+                            <!--                                                        Please enter a valid email address for shipping updates.-->
+                            <!--                                                 </div>-->
+                            <!--                                          </div>-->
+
+                     </div>
+                     <!--                            <hr class="my-4">-->
+                     <!--                            <div class="col-md-8"> <h4  style="color: red;">Опыт работы</h4></div>-->
+                     <!--                            <div id="readroot"  style="display: none">-->
+
+                     <!--                                   <div class="row g-lg-3">-->
+                     <!--                                          <div class="col-md-4">-->
+                     <!--                                                 <label for="dep_exp" class="form-label">Департамент</label>-->
+                     <!--                                                 <select class="form-select" name="dep_exp" id="dep_exp" required>-->
+                     <!--                                                        <option value="">Выбрать...</option>-->
+                     <!--                                                        <option>ИТ</option>-->
+                     <!--                                                 </select>-->
+                     <!--                                                 <div class="invalid-feedback">-->
+                     <!--                                                        Please provide a valid state.-->
+                     <!--                                                 </div>-->
+                     <!--                                          </div>-->
+                     <!--                                          <div class="col-md-4">-->
+                     <!--                                                 <label for="spec_exp" class="form-label">Специализация</label>-->
+                     <!--                                                 <select class="form-select" name="spec_exp" id="spec_exp" required>-->
+                     <!--                                                        <option value="">Выбрать...</option>-->
+                     <!--                                                        <option>Программист</option>-->
+                     <!--                                                 </select>-->
+                     <!--                                                 <div class="invalid-feedback">-->
+                     <!--                                                        Please provide a valid state.-->
+                     <!--                                                 </div>-->
+                     <!--                                          </div>-->
+                     <!--                                          <div class="col-md-4">-->
+                     <!--                                                 <label for="position_exp" class="form-label">Должность</label>-->
+                     <!--                                                 <select class="form-select" name="position_exp" id="position_exp" required>-->
+                     <!--                                                        <option value="">Выбрать...</option>-->
+                     <!--                                                        <option>Ведущий специалист</option>-->
+                     <!--                                                 </select>-->
+                     <!--                                                 <div class="invalid-feedback">-->
+                     <!--                                                        Please provide a valid state.-->
+                     <!--                                                 </div>-->
+                     <!--                                          </div>-->
+                     <!--                                   </div>-->
+                     <!--                                   <br >-->
+                     <!--                                   <div class="row g-lg-3" >-->
+                     <!--                                          <div class="input-group col-8" >-->
+                     <!--                                                 <span class="input-group-text">Место работы</span>-->
+                     <!--                                                 <textarea class="form-control" name="place_exp" aria-label="With textarea"></textarea>-->
+                     <!--                                          </div>-->
+                     <!--                                          <div class="col-sm-4" >-->
+                     <!--                                                 <label for="start_date_exp" class="form-label">Начало</label>-->
+                     <!--                                                 <input type="date"  class="form-control" name="start_date_exp" id="start_date_exp" placeholder="" value="" required>-->
+                     <!--                                                 <div class="invalid-feedback">-->
+                     <!--                                                        Please provide a valid state.-->
+                     <!--                                                 </div>-->
+
+                     <!--                                          </div>-->
+                     <!--                                          <div class="col-sm-4" >-->
+                     <!--                                                 <label for="end_date_exp" class="form-label">Конец</label>-->
+                     <!--                                                 <input type="date"  class="form-control" name="end_date_exp" id="end_date_exp" placeholder="" value="" required>-->
+                     <!--                                                 <div class="invalid-feedback">-->
+                     <!--                                                        Please provide a valid state.-->
+                     <!--                                                 </div>-->
+                     <!--                                          </div>-->
+
+                     <!--                                          <hr class="my-4" >-->
+                     <!--                                   </div>-->
+                     <!--                            </div>-->
+                     <!--                            <span id="writeroot"></span>-->
+                     <!--                            <input type="button"  class="col-md btn btn-primary btn-lg" value="+" onclick="moreFields()"/> <br >-->
+                     <hr class="my-4">
+                     <div class="col-md-8"> <h4  style="color: red;">Должностная информация</h4></div>
+                     <div class="row g-lg-3">
+                            <div class="col-md-4">
+                                   <label for="dep_cur" class="form-label">Департамент</label>
+                                   <select class="form-select" name="dep_cur" id="dep_cur" required>
+                                          <option value="">Выбрать...</option>
+                                          <option>ИТ</option>
+                                   </select>
+                                   <div class="invalid-feedback">
+                                          Please provide a valid state.
+                                   </div>
+                            </div>
+                            <div class="col-md-4">
+                                   <label for="spec_cur" class="form-label">Специализация</label>
+                                   <select class="form-select" name="spec_cur" id="spec_cur" required>
+                                          <option value="">Выбрать...</option>
+                                          <option>Программист</option>
+                                   </select>
+                                   <div class="invalid-feedback">
+                                          Please provide a valid state.
+                                   </div>
+                            </div>
+                            <div class="col-md-4">
+                                   <label for="position_cur" class="form-label">Должность</label>
+                                   <select class="form-select" name="position_cur" id="position_cur" required>
+                                          <option value="">Выбрать...</option>
+                                          <option>Ведущий специалист</option>
+                                   </select>
+                                   <div class="invalid-feedback">
+                                          Please provide a valid state.
+                                   </div>
+                            </div>
+
+                     </div> <br >
+                     <label for="formFile" class="form-label">Фото</label>
+                     <input class="form-control" name="file" type="file" id="formFile"><br />
+                     <button  type="submit"  value="Upload" class="w-100 btn btn-primary btn-lg">Сохранить</button>
+
+                     <h6 class="text-success">[[${success}]]</h6>
+              </form>
+              <!--                     <a href="/upload/show" style="float:left;" class="btn btn-success text-right">Show All</a>-->
+       </div>
+</div>
